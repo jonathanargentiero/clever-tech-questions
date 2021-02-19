@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Clever Tech Questions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clever tech questions for meetings">
+    <meta name="author" content="Jonathan Argentiero">
+
+    <!-- Le Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+  	<style>
+  		html,body{width:100%;margin:0;padding:0;font-family:Arial,sans-serif;color: #222;}
+        body{padding:2rem 0}
+  		main{padding:1rem 0;}
+        section{text-align:center;padding:1rem;}
+  		header,footer{text-align:center;}
+  		section > a{border: 5px solid black;border-color:darkslategrey;box-shadow: 2px 2px 5px gray;border-radius:5px;padding: 4rem 2rem;min-height: 15rem;display: block;margin: 0 auto;width: 14rem;text-decoration:none;color:darkslategrey}
+        strong{animation: fadeIn 1s ease;}
+  		h1{font-size:3rem;line-height: 120%;background: white;}
+  		strong{font-size:2rem;line-height:140%;}
+        @keyframes fadeIn {0% {opacity:0;}100% {opacity:1;}}
+  	</style>
+  </head>
+  <body>
+    <header>
+        <h1 style="display:none;">Clever Tech Questions</h1>
+        <p>Here's a clever question for you</p>
+    </header>
+    <main>
+  		<section>
+            <a href="#" title="click" onclick="changeQuestion()" id="question"></a>
+        </section>
+  	</main>
+    <footer>
+        <p id="joke">Nobody will notice you were distracted.</p>
+    </footer>
+    <script type="text/javascript">
+        var questions = [
+            "Does the solution is scalable?",
+            "Is it tested?",
+            "How is it built?",
+            "What about costing?",
+            "How are you monitoring issues in Production?",
+            "Do we expect any impact on other applications?",
+            "When are you planning to ship it on Staging?",
+            "Is documentation available?",
+            "Do we need to notify the clients about it?",
+            "Are we having pilote testing on Production?",
+        ];
+        var lastQuestion = -1;
+        function changeQuestion() {
+            var random = Math.floor((Math.random() * questions.length));
+            if (random === lastQuestion) {
+                if (random > 0) {
+                    random = random - 1;
+                } else {
+                    random = random + 1;
+                }
+            }
+            document.getElementById('question').innerHTML = '<strong>' + questions[random] + '</strong>';
+            lastQuestion = random;
+        }
+        changeQuestion();
+    </script>
+  </body>
+</html>
